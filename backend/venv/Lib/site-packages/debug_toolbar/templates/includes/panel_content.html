@@ -1,0 +1,12 @@
+{% if panel.has_content and panel.enabled %}
+  <div id="{{ panel.panel_id }}" class="fastdt-panelContent fastdt-hidden">
+    <div class="fastDebugPanelTitle">
+      <button type="button" class="fastDebugClose">×</button>
+        <h3>{{ panel.title }}</h3>
+    </div>
+    <div class="fastDebugPanelContent">
+      <div class="fastdt-loader"></div>
+      <div class="fastdt-scroll"></div>
+    </div>
+  </div>
+{% endif %}

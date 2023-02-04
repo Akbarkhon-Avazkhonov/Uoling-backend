@@ -1,0 +1,30 @@
+<div class="fastdt-loader"></div>
+
+<table class="fastdt-hidden" data-warning-color="{{ toolbar.settings.LOGGING_COLORS.WARNING }}">
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Latest version</th>
+      <th>Python</th>
+      <th>Status</th>
+      <th>Home page</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for package in packages %}
+      <tr>
+        <td>
+          <a href="https://pypi.org/project/{{ package.project_name }}/" target="_blank">
+            {{ package.project_name }}
+          </a>
+        </td>
+        <td><code>{{ package.version }}</code></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

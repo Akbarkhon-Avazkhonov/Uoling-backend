@@ -1,0 +1,11 @@
+<iframe id="profilingContent">
+  <style>.header { display: none; }</style>
+  {{ content }}
+</iframe>
+
+<script>
+(function() {
+  const iframe = document.getElementById('profilingContent');
+  iframe.srcdoc = iframe.textContent;
+})();
+</script>

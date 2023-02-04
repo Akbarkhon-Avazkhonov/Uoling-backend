@@ -1,0 +1,26 @@
+{% macro pprint_settings(settings, exclude=None) %}
+{% if settings.__config__.title %}<h4>{{ settings.__config__.title }}</h4>{% endif %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, value in settings.dict(exclude=exclude).items() %}
+      <tr>
+        <td>{{ key|escape }}</td>
+        <td><code>{{ value|pprint|escape }}</code></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endmacro %}
+
+{% for settings in toolbar.settings.SETTINGS %}
+  {{ pprint_settings(settings) }}
+{% endfor %}
+
+{{ pprint_settings(toolbar.settings, exclude=to_set(['SETTINGS'])) }}
